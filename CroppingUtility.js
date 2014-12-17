@@ -60,26 +60,11 @@ function getCroppedDataBlob(imgObj, cropX, cropY, cropWidth, cropHeight, outputI
 }
 
 /**
-  * Converts inputted image object and dimensions to a DataURI format cropped file
+  * Converts inputted image dataURI to blob data manually
   *
-  * @param {imgObj}     javascript "Image" object holding the image that will be cropped
-  * @param {cropX}      positive integer value holding X axis pixel count to upper left
-  *                     corner of cropping area
-  * @param {cropY}      positive integer value holding Y axis pixel count to upper left
-  *                     corner of cropping area
-  * @param {cropWidth}  positive integer value for pixel count of cropping area width
-  * @param {cropHeight} positive integer value for pixed count of cropping area height
-  * @param {outputInfo} Object with 3 possible settings determining output dimensions:
-  *                     scale (positive integer): if set, scales natural crop area dim 
-  *                                               by this factor. Top priority.
-  *                     width (positive integer): if set, scales output dim to match
-  *                                               value with natural Y to preserve 
-  *                                               aspect ratio. Mid priority.
-  *                     height (positive integer):  if set, scales output dim to match
-  *                                                 value with natural X to preserve 
-  *                                                 aspect ratio. Low priority
-  *
-  * @return             String representation of the of the resulting image dataURI
+  * @param {data}     String representation of DataURI for image
+  * 
+  * @return           Javascript "Blob" object for image data
   */
 function dataURItoBlob(data) {
   // Split the data info (mime type, encoding, etc) from encoded data
